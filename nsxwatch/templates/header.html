@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+<title>
+    {% if title %}
+    {{ title }} - NSXWatch
+    {% else %}
+    NSXWatch
+    {% endif %}
+</title>
+
+
+<link rel=stylesheet href="{{ url_for('static', filename='css/clarity-ui.min.css') }}"> 
+<link rel=stylesheet href="{{ url_for('static', filename='css/clarity-icons.min.css') }}">
+
+<script src="{{ url_for('static', filename='js/custom-elements.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/clarity-icons.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/clarity-icons-api.js') }}"></script>
+<script src="{{ url_for('static', filename='js/clarity-icons-element.js') }}"></script>
+
+
+<style>
+    header .branding {
+        display: flex;
+        align-items: center;
+        margin-right: -40px;
+        margin-left: -10px;
+    }
+</style>
+<html lang="en">
+
+<head>
+    <title>
+        NSXWatch
+    </title>
+</head>
+
+<header class="header-6">
+    <div class="branding">
+        <a href="/" title="Keeping an eye on your virtual network, all the time">
+        <img src="{{ url_for('static', filename='img/logo.png') }}"></a>
+    </div>
+    <div class="header-nav">
+        {% if current_user.is_authenticated %}
+            <a href="/loadbalancer" class="nav-link nav-text">Load Balancer</a>
+            <a href="/lb2" class="nav-link nav-text">LB2</a>
+            <a href="/stats" class="nav-link nav-text">Stats</a>
+            <a href="/routing" class="nav-link nav-text">Routing</a>
+            <a href="/settings" class="nav-link nav-text">Settings</a>
+        {% endif %}
+
+    </div>
+    <div class="header-actions">
+        NSX: 
+        {% if config['DEMO'] %}
+        DEMO
+        {% else %}
+        {{config['NSXM']}}
+        {% endif %}<br>
+
+        {% if current_user.is_authenticated %}
+            {{current_user.username}}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+    </div>
+
+
+</header>
+
+<body>
+    {% block body %}{% endblock %}
+</body>
+</html>

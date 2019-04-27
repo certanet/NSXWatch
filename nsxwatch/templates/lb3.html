@@ -1,0 +1,158 @@
+{% extends "header.html" %} {% block body %}
+
+<style>
+
+#poolcard {
+}
+
+.alignleft {
+    float: left;
+    margin-top: 0;
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.alignright {
+    float: right;
+    margin-top: 0;
+    font-weight: 200;
+    font-size: 18px;
+}
+
+</style>
+
+
+<div class="container">
+
+{% for edge in edges %}
+    <div class="row">
+        <div class="card">
+            <div class="card-block">
+                <div id="poolcard" class="card-title">
+                    {{edge.name}} | Status: <clr-icon shape="circle" size="24"  title="{{edge.status}}" 
+                    {% if edge.status == 'GREEN' %}
+                        class="is-solid is-success">
+                    {% elif edge.status == 'YELLOW' %}
+                        class="is-solid is-warning"
+                    {% elif edge.status == 'RED' %}
+                        class="is-solid is-error"
+                    {% else %}
+                        class="is-solid"
+                    {% endif %}
+                    </clr-icon>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    {% for pool_row in edge.pools | batch(2) %}
+
+    <div class="row">
+        {% for pool in pool_row %}
+        <div class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    <b>{{pool.name}}</b>
+                </div>
+                <div class="card-block">
+                    <div id="poolcard" class="card-title">
+                        <p class="alignleft">Status: {{pool.status}}</p>
+                        <p class="alignright">Data In: {{pool.bytesin|filesizeformat}}</p>
+                        <br>
+                        <p class="alignleft">Current Sessions: {{pool.current_sessions}}</p>
+                        <p class="alignright">Data Out: {{pool.bytesout|filesizeformat}}</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div class="card-text">
+                        Pool Members:
+
+
+                        {% set count_pool_members = [0] %}
+                        {% set count_up_pool_members = [0] %}
+
+                        {% for mem in pool.members %}
+                          {% if count_pool_members.append(count_pool_members.pop() + 1) %}
+                          {% endif %}
+                          {% if mem.status == 'UP' %}
+                                {% if count_up_pool_members.append(count_up_pool_members.pop() + 1) %}
+                                {% endif %}
+                          {% endif %}
+                        {% endfor %}
+
+
+                        <div class="progress-block">
+                            <label>{{count_up_pool_members[0]}} / {{count_pool_members[0]}}</label>
+                            <!--<div class="progress-static">
+                            <div class="progress-meter" data-value="55"></div>
+                                </div>-->
+                            {% if count_up_pool_members[0] != count_pool_members[0] %}
+                            <div class="progress danger">
+                            {% else %}
+                            <div class="progress success">
+                            {% endif %}
+                                <progress value="{{count_up_pool_members[0]}}" max="{{count_pool_members[0]}}" data-displayval="0%"></progress>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+
+    <div class="row">
+        {% for pool in pool_row %}
+        <div class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Member Name</th>
+                        <th>Status</th>
+                        <th>Last State Change</th>
+                        <th>Sessions Handled</th>
+                        <th>Load Share</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for member in pool.members %}
+                    <tr>
+                        <td>{{member.name}}</td>
+
+                        {% if member.status == 'DOWN' %}
+                        <td>
+                            <a role="button" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md">
+                                <span class="tooltip-content">{{member.failure_cause}}</span>
+                                {{member.status}}
+                            </a>
+                        {% else %}
+                        <td>{{member.status}}
+                        {% endif %}
+                        </td>
+
+                        <td>{{member.last_state_change_time}}</td>
+                        <td>{{member.sessions_handled}}</td>
+                        <td>{{'%0.2f' % member.member_load_share()|float}}%</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <br>
+        </div>
+    </div>
+    
+    {% endfor %}
+{% endfor %}
+</div>
+
+<p class="alignright">Last Updated: {{stat_time}}</p>
+{% endblock %}

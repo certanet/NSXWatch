@@ -1,0 +1,143 @@
+{
+  "featureType": "loadbalancer_4.0",
+  "pool": [
+    {
+      "poolId": "pool-4",
+      "name": "POOL-3TA-WEB",
+      "algorithm": "round-robin",
+      "transparent": false,
+      "monitorId": [
+        "monitor-2"
+      ],
+      "applicationRuleId": [],
+      "member": [
+        {
+          "memberId": "member-1",
+          "groupingObjectId": "vm-6739",
+          "groupingObjectName": "Web01",
+          "weight": 1,
+          "monitorPort": 80,
+          "port": 80,
+          "maxConn": 0,
+          "minConn": 0,
+          "condition": "enabled",
+          "name": "WEB01-3TA"
+        },
+        {
+          "memberId": "member-2",
+          "groupingObjectId": "vm-6735",
+          "groupingObjectName": "Web02",
+          "weight": 1,
+          "monitorPort": 80,
+          "port": 80,
+          "maxConn": 0,
+          "minConn": 0,
+          "condition": "enabled",
+          "name": "WEB02-3TA"
+        }
+      ]
+    },
+    {
+      "poolId": "pool-5",
+      "name": "POOL-3TA-APP",
+      "algorithm": "round-robin",
+      "transparent": false,
+      "monitorId": [],
+      "applicationRuleId": [],
+      "member": [
+        {
+          "memberId": "member-3",
+          "groupingObjectId": "vm-6736",
+          "groupingObjectName": "App01",
+          "weight": 1,
+          "monitorPort": 80,
+          "port": 80,
+          "maxConn": 0,
+          "minConn": 0,
+          "condition": "enabled",
+          "name": "APP01-3TA"
+        },
+        {
+          "memberId": "member-4",
+          "groupingObjectId": "vm-6738",
+          "groupingObjectName": "App02",
+          "weight": 1,
+          "monitorPort": 80,
+          "port": 80,
+          "maxConn": 0,
+          "minConn": 0,
+          "condition": "enabled",
+          "name": "APP02-3TA"
+        }
+      ]
+    },
+    {
+      "poolId": "pool-7",
+      "name": "POOL-NetWatch-WWW",
+      "algorithm": "round-robin",
+      "transparent": true,
+      "monitorId": [
+        "monitor-2"
+      ],
+      "applicationRuleId": [],
+      "member": [
+        {
+          "memberId": "member-6",
+          "ipAddress": "10.0.80.11",
+          "weight": 1,
+          "monitorPort": 80,
+          "port": 80,
+          "maxConn": 0,
+          "minConn": 0,
+          "condition": "enabled",
+          "name": "NWatch-WWW01"
+        },
+        {
+          "memberId": "member-7",
+          "ipAddress": "10.0.80.12",
+          "weight": 1,
+          "monitorPort": 80,
+          "port": 80,
+          "maxConn": 0,
+          "minConn": 0,
+          "condition": "enabled",
+          "name": "NWatch-WWW02"
+        }
+      ]
+    },
+    {
+      "poolId": "pool-6",
+      "name": "POOL-NetWatch-APP",
+      "algorithm": "round-robin",
+      "transparent": false,
+      "monitorId": [
+        "monitor-1"
+      ],
+      "applicationRuleId": [],
+      "member": [
+        {
+          "memberId": "member-5",
+          "ipAddress": "10.0.70.11",
+          "weight": 1,
+          "monitorPort": 8000,
+          "port": 8000,
+          "maxConn": 0,
+          "minConn": 0,
+          "condition": "enabled",
+          "name": "NWatch-APP01"
+        },
+        {
+          "memberId": "member-8",
+          "ipAddress": "10.0.70.12",
+          "weight": 1,
+          "monitorPort": 8000,
+          "port": 8000,
+          "maxConn": 0,
+          "minConn": 0,
+          "condition": "enabled",
+          "name": "NWatch-APP02"
+        }
+      ]
+    }
+  ]
+}

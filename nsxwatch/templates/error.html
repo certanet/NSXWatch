@@ -1,0 +1,27 @@
+{% extends "header.html" %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center">
+        Welcome to NSXWatch
+    </h1>
+    <h2>Looks like you're new here!</h2>
+    <h5>
+        The follwing error has occured:
+        <br>"<b>{{error}}</b>"<br>
+    </h5>
+
+    <h2>To resolve...</h2>
+    <h5>1. Please create a user via adduser.py
+        <div class="highlight">
+            <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<code> (venv) NSXWatch> <b>python adduser.py</b>
+ Enter username: <b>myuser</b>
+ Enter password: <b>************</b>
+ Confirm password: <b>************</b>
+ User added!</code></pre></div>
+
+        <br>2. Then refresh this page
+    </h5>
+</div>
+{% endblock %}

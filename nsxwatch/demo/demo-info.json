@@ -1,0 +1,10 @@
+{
+    "currentLoggedInUser": "admin",
+    "versionInfo": {
+        "majorVersion": "6",
+        "minorVersion": "4",
+        "patchVersion": "3",
+        "buildNumber": "9927516"
+    },
+    "readOnlyAccess": false
+}

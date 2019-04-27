@@ -1,0 +1,21 @@
+{% extends "header.html" %} {% block body %}
+
+<h1 class="text-center">
+    <u>{{title}}</u><br>
+    {% for setting in settings %}
+    {{ setting.setting_name }}: {{ setting.setting_value }}<br>
+    {% endfor %}
+</h1>
+
+<form>
+    <section class="form-block">
+        <div class="form-group">
+            <div class="toggle-switch">
+                <input type="checkbox" id="toggle_1">
+                <label for="toggle_1">Demo: </label>
+            </div>
+        </div>
+    </section>
+</form>
+
+{% endblock %}

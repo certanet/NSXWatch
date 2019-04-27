@@ -1,0 +1,38 @@
+{% extends "header.html" %} {% block body %}
+
+<h1 class="text-center">
+    <u>{{title}}</u>
+</h1>
+<div class="container">
+
+<form clrForm>
+  <clr-textarea-container>
+    <label>ESG01</label>
+    <textarea rows="30" readonly clrTextarea [(ngModel)]="description" name="description" required>
+haIndex:              1
+Total number of routes: 8
+
+
+Codes: O - OSPF derived, i - IS-IS derived, B - BGP derived,
+C - connected, S - static, L1 - IS-IS level-1, L2 - IS-IS level-2,
+IA - OSPF inter area, E1 - OSPF external type 1, E2 - OSPF external type 2,
+N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+
+S       8.8.8.8/32           [1/0]         via 172.30.0.254        
+C       169.254.1.0/30       [0/0]         via 169.254.1.2     
+O   E2  10.0.60.0/24         [110/0]       via 10.255.0.1   
+O   E2  10.0.70.0/24         [110/0]       via 10.255.0.1   
+O   E2  10.0.80.0/24         [110/0]       via 10.255.0.1   
+C       172.30.0.0/24        [0/0]         via 172.30.0.204        
+O       192.168.2.0/24       [110/11]      via 172.30.0.254        
+C       10.255.0.0/29        [0/0]         via 10.255.0.6   
+
+
+    </textarea>
+    <clr-control-helper>Last Refreshed: Never</clr-control-helper>
+  </clr-textarea-container>
+</form>
+</div>
+
+
+{% endblock %}

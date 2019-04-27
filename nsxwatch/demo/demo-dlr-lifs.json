@@ -1,0 +1,84 @@
+{
+    "interfaces": [
+        {
+            "label": "908800000002/vNic_2",
+            "name": "TRANSIT",
+            "addressGroups": {
+                "addressGroups": [
+                    {
+                        "primaryAddress": "10.255.0.6",
+                        "subnetMask": "255.255.255.248",
+                        "subnetPrefixLength": "29"
+                    }
+                ]
+            },
+            "mtu": 1500,
+            "type": "uplink",
+            "isConnected": true,
+            "isSharedNetwork": false,
+            "index": "2",
+            "connectedToId": "virtualwire-2",
+            "connectedToName": "TRANSIT"
+        },
+        {
+            "label": "90880000000d",
+            "name": "DB",
+            "addressGroups": {
+                "addressGroups": [
+                    {
+                        "primaryAddress": "10.0.60.254",
+                        "subnetMask": "255.255.255.0",
+                        "subnetPrefixLength": "24"
+                    }
+                ]
+            },
+            "mtu": 1500,
+            "type": "internal",
+            "isConnected": true,
+            "isSharedNetwork": false,
+            "index": "13",
+            "connectedToId": "virtualwire-4",
+            "connectedToName": "LS-DB"
+        },
+        {
+            "label": "90880000000e",
+            "name": "App",
+            "addressGroups": {
+                "addressGroups": [
+                    {
+                        "primaryAddress": "10.0.70.254",
+                        "subnetMask": "255.255.255.0",
+                        "subnetPrefixLength": "24"
+                    }
+                ]
+            },
+            "mtu": 1500,
+            "type": "internal",
+            "isConnected": true,
+            "isSharedNetwork": false,
+            "index": "14",
+            "connectedToId": "virtualwire-5",
+            "connectedToName": "LS-App"
+        },
+        {
+            "label": "90880000000f",
+            "name": "Web",
+            "addressGroups": {
+                "addressGroups": [
+                    {
+                        "primaryAddress": "10.0.80.254",
+                        "subnetMask": "255.255.255.0",
+                        "subnetPrefixLength": "24"
+                    }
+                ]
+            },
+            "mtu": 1500,
+            "type": "internal",
+            "isConnected": true,
+            "isSharedNetwork": false,
+            "index": "15",
+            "connectedToId": "virtualwire-6",
+            "connectedToName": "LS-Web"
+        }
+    ]
+}

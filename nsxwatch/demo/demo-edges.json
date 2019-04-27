@@ -1,0 +1,151 @@
+{
+  "edgePage": {
+    "pagingInfo": {
+      "pageSize": 256,
+      "startIndex": 0,
+      "totalCount": 2,
+      "sortOrderAscending": true,
+      "sortBy": "id"
+    },
+    "data": [
+      {
+        "objectId": "edge-1",
+        "objectTypeName": "Edge",
+        "vsmUuid": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "nodeId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "revision": 75,
+        "type": {
+          "name": "Edge"
+        },
+        "name": "ESG01",
+        "clientHandle": "",
+        "extendedAttributes": [],
+        "isUniversal": false,
+        "universalRevision": 0,
+        "isTemporal": false,
+        "isUpgradeAvailable": false,
+        "id": "edge-1",
+        "state": "deployed",
+        "edgeType": "gatewayServices",
+        "datacenterMoid": "datacenter-2",
+        "datacenterName": "DC01",
+        "tenantId": "default",
+        "apiVersion": "4.0",
+        "edgeStatus": "GREEN",
+        "numberOfConnectedVnics": 2,
+        "appliancesSummary": {
+          "vmVersion": "6.4.3",
+          "vmBuildInfo": "6.4.3-9852940",
+          "applianceSize": "compact",
+          "fqdn": "ESG01",
+          "numberOfDeployedVms": 2,
+          "activeVseHaIndex": 1,
+          "vmMoidOfActiveVse": "vm-6933",
+          "vmNameOfActiveVse": "ESG01-1",
+          "hostMoidOfActiveVse": "host-6548",
+          "hostNameOfActiveVse": "HOST",
+          "resourcePoolMoidOfActiveVse": "domain-c6549",
+          "resourcePoolNameOfActiveVse": "CLUSTER",
+          "dataStoreMoidOfActiveVse": "datastore-6594",
+          "dataStoreNameOfActiveVse": "DATASTORE",
+          "statusFromVseUpdatedOn": 1539374409552,
+          "communicationChannel": "msgbus-msgbus",
+          "enableFips": false
+        },
+        "hypervisorAssist": false,
+        "allowedActions": [
+          "Change Log Level",
+          "Add Edge Appliance",
+          "Delete Edge Appliance",
+          "Edit Edge Appliance",
+          "Edit CLI Credentials",
+          "Change FIPS mode",
+          "Change edge appliance size",
+          "Force Sync",
+          "Redeploy Edge",
+          "Change Edge Appliance Core Dump Configuration",
+          "Enable hypervisorAssist",
+          "Edit Highavailability",
+          "Edit Dns",
+          "Edit Syslog",
+          "Edit Automatic Rule Generation Settings",
+          "Enable SSH",
+          "Download Edge TechSupport Logs"
+        ]
+      },
+      {
+        "objectId": "edge-4",
+        "objectTypeName": "Edge",
+        "vsmUuid": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "nodeId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "revision": 8,
+        "type": {
+          "name": "Edge"
+        },
+        "name": "DLR01",
+        "clientHandle": "",
+        "extendedAttributes": [],
+        "isUniversal": false,
+        "universalRevision": 0,
+        "isTemporal": false,
+        "isUpgradeAvailable": false,
+        "id": "edge-4",
+        "state": "deployed",
+        "edgeType": "distributedRouter",
+        "datacenterMoid": "datacenter-2",
+        "datacenterName": "DC01",
+        "tenantId": "default",
+        "apiVersion": "4.0",
+        "edgeStatus": "GREEN",
+        "numberOfConnectedVnics": 12,
+        "appliancesSummary": {
+          "vmVersion": "6.4.3",
+          "vmBuildInfo": "6.4.3-9852940",
+          "applianceSize": "compact",
+          "fqdn": "dlr01",
+          "numberOfDeployedVms": 1,
+          "activeVseHaIndex": 0,
+          "vmMoidOfActiveVse": "vm-6931",
+          "vmNameOfActiveVse": "DLR01-0",
+          "hostMoidOfActiveVse": "host-6581",
+          "hostNameOfActiveVse": "HOST",
+          "resourcePoolMoidOfActiveVse": "domain-c6549",
+          "resourcePoolNameOfActiveVse": "CLUSTER",
+          "dataStoreMoidOfActiveVse": "datastore-6595",
+          "dataStoreNameOfActiveVse": "DATASTORE",
+          "statusFromVseUpdatedOn": 1539374422504,
+          "communicationChannel": "msgbus",
+          "enableFips": false
+        },
+        "hypervisorAssist": false,
+        "allowedActions": [
+          "Change Log Level",
+          "Add Edge Appliance",
+          "Delete Edge Appliance",
+          "Edit Edge Appliance",
+          "Edit CLI Credentials",
+          "Change FIPS mode",
+          "Force Sync",
+          "Redeploy Edge",
+          "Change Edge Appliance Core Dump Configuration",
+          "Edit Highavailability",
+          "Edit Dns",
+          "Edit Syslog",
+          "Disable SSH",
+          "Download Edge TechSupport Logs"
+        ],
+        "edgeAssistId": 37000,
+        "edgeAssistInstanceName": "default+edge-4",
+        "lrouterUuid": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "logicalRouterScopes": {
+          "logicalRouterScope": [
+            {
+              "type": "TransportZone",
+              "id": "vdnscope-1"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
